@@ -1,10 +1,15 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Reviews from './Reviews/Reviews';
+import { BsStar } from 'react-icons/bs'
+import useTitle from '../../TitleHook/Title';
 
 const Details = () => {
     const detailsData=useLoaderData()
     const {img,name,price,rating,details}=detailsData
+    useTitle('details')
+
+    useTitle('details')
     return (
         <div>
             <div className='shadow-md mb-10 p-5 bo'>
@@ -12,8 +17,8 @@ const Details = () => {
                 <div className='flex mx-10'>
                     <div className='w-4/12 text-start'>
                         <h1 className='font-bold text-xl'>Book Name:- {name}</h1>
-                        <h1 className='font-bold text-xl'>Price:- {price}</h1>
-                        <h1 className='font-bold text-xl'>{rating}</h1>
+                        <h1 className='font-bold text-xl'>Price:- ${price}</h1>
+                        <h1 className='font-bold text-xl flex my-auto'>Rating:- {rating}  <BsStar className='my-auto'/></h1>
 
                     </div>
                     <div className='w-8/12 text-justify '>

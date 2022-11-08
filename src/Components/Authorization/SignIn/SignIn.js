@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/Context';
+import useTitle from '../../../TitleHook/Title';
 import ExternalLogIn from '../ExternalLogIn/ExternalLogIn';
 
 const SignIn = () => {
     const {emailSignIn}=useContext(AuthContext)
+    useTitle('Sign In')
 
     const handleEmailSignIn=event=>{
         event.preventDefault()

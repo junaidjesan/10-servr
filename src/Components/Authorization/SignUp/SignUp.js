@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/Context';
+import useTitle from '../../../TitleHook/Title';
 import ExternalLogIn from '../ExternalLogIn/ExternalLogIn';
 
 const SignUp = () => {
     const {emailSignUp}=useContext(AuthContext)
+    useTitle('Sign Up')
 
     const handleSignUp=event=>{
         event.preventDefault()
@@ -15,11 +17,11 @@ const SignUp = () => {
         const url=form.url.value 
         const name=form.name.value 
 
+        form.reset()
         emailSignUp(email,password)
         .then(res=>{
             const user=res.user
             console.log(user)
-            form.reset()
         })
         .catch(er=>{console.log(er)})
     }

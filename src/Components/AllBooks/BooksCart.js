@@ -19,7 +19,6 @@ const BooksCart = ({books}) => {
                     <p className='text-justify'>{sliceDetails}...</p>
                     <div className="card-actions justify-end">
                         <div className="badge badge-outline"><Link to={`/all-services/${_id}`}>Details</Link></div>
-                        <div className="badge badge-outline"><Link>Collect</Link></div>
                     </div>
                 </div>
             </div>
