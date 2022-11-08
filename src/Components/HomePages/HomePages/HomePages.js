@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../Banner';
 import Carosul from '../Carosul';
+import Service from '../Service/Service';
 
 const HomePages = () => {
     return (
@@ -10,6 +11,9 @@ const HomePages = () => {
             </div>
             <div>
                 <Carosul></Carosul>
+            </div>
+            <div>
+                <Service></Service>
             </div>
         </div>
     );

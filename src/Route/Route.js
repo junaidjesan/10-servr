@@ -1,8 +1,10 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import Books from '../Components/AllBooks/Books';
 import SignIn from '../Components/Authorization/SignIn/SignIn';
 import SignUp from '../Components/Authorization/SignUp/SignUp';
 import Blogs from '../Components/Blogs/Blogs';
+import Details from '../Components/Details/Details';
 import HomePages from '../Components/HomePages/HomePages/HomePages';
 import MyReview from '../Components/MyReview/MyReview';
 import Main from '../Layouts/Main';
@@ -15,7 +17,8 @@ export const projectRouter=createBrowserRouter([
         children:[
             {
                 path:'/',
-                element:<HomePages></HomePages>
+                element:<HomePages></HomePages>,
+                loader:()=>fetch('http://localhost:5000/home-services')
             },
             {
                 path:'/myreview',
@@ -32,6 +35,16 @@ export const projectRouter=createBrowserRouter([
             {
                 path:'/blogs',
                 element:<Blogs></Blogs>
+            },
+            {
+                path:'/books',
+                element:<Books></Books>,
+                loader:()=>fetch('http://localhost:5000/all-services/')
+            },
+            {
+                path:'/all-services/:id',
+                element:<Details></Details>,
+                loader:({params})=>fetch(`http://localhost:5000/all-services/${params.id}`)
             }
         ]
     }

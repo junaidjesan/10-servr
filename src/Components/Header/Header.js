@@ -19,6 +19,7 @@ const Header = () => {
                         <div><Link className='font-semibold' to='/'>Home</Link></div>
                         <div><Link className='font-semibold' to='/myReview'>My Reviews</Link></div>
                         <div><Link className='font-semibold' to='/blogs'>Blogs</Link></div>
+                        <div><Link className='font-semibold' to='/books'>Books</Link></div>
                     </div>
                     <div className="dropdown md:hidden">
                         <label tabIndex={0} className="btn btn-primary w-4 h-3 btn-circle">
@@ -28,6 +29,7 @@ const Header = () => {
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/myReview'>My Reviews</Link></li>
                             <li><Link to='/blogs'>Blogs</Link></li>
+                            <li><Link to='/books'>Books</Link></li>
                         </ul>
                     </div>
                 </div>
