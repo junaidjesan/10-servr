@@ -3,7 +3,7 @@ import React from 'react';
 const Stat = () => {
     return (
         <div>
-            <div className="stats stats-vertical md:w-8/12 mx-auto mb-10 shadow-md lg:stats-horizontal shadow">
+            <div className="stats stats-vertical md:w-8/12 mx-auto mb-24 shadow-md lg:stats-horizontal shadow">
 
                 <div className="stat">
                     <div className="stat-title text-sky-800 ">Sell</div>

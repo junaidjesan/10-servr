@@ -21,6 +21,7 @@ const Header = () => {
                                 <div><Link className='font-semibold' to='/'>Home</Link></div>
                                 <div><Link className='font-semibold' to='/books'>Books</Link></div>
                                 <div><Link className='font-semibold' to='/myReview'>My Reviews</Link></div>
+                                <div><Link className='font-semibold' to='/favorite'>Favorite</Link></div>
                                 <div><Link className='font-semibold' to='/blogs'>Blogs</Link></div>
                             </>
                             :

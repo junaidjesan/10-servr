@@ -19,10 +19,10 @@ const HomePages = () => {
             <div>
                 <Service></Service>
             </div>
-            <div>
+            <div className='w-11/12 rounded-md border-2 mx-auto'>
                 <Stat></Stat>
             </div>
-            <div>
+            <div className='mt-10'>
                 <h1 className='text-3xl font-bold text-sky-800 text-center font-serif'>About Myself</h1>
                 <div className='w-8/12 mx-auto mb-20 mt-5'>
                     <AboutMe></AboutMe>

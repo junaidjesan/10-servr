@@ -5,7 +5,7 @@ import useTitle from '../../../TitleHook/Title';
 import ExternalLogIn from '../ExternalLogIn/ExternalLogIn';
 
 const SignUp = () => {
-    const {emailSignUp}=useContext(AuthContext)
+    const {emailSignUp, updateUserData}=useContext(AuthContext)
     useTitle('Sign Up')
 
     const handleSignUp=event=>{
@@ -14,16 +14,28 @@ const SignUp = () => {
         const form=event.target 
         const email=form.email.value 
         const password=form.password.value 
-        const url=form.url.value 
+        const photoUrl=form.url.value 
         const name=form.name.value 
 
         form.reset()
         emailSignUp(email,password)
         .then(res=>{
             const user=res.user
-            console.log(user)
+            userUpdate(name, photoUrl)
         })
         .catch(er=>{console.log(er)})
+    }
+    const userUpdate=(name,photoUrl)=>{
+        const profile={
+            displayName: name,
+            photoURL:photoUrl,
+        }
+        updateUserData(profile)
+        .then(res=>{
+            const data=res.user
+            console.log(data)
+        })
+        .catch(er=>{})
     }
     return (
         <div>

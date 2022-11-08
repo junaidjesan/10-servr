@@ -1,8 +1,9 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../../../Context/Context';
 
 const Reviews = () => {
     const { user } = useContext(AuthContext)
+    const {displayName,photoURL}=user
     console.log(user)
     
             const handleOnBlur = event => {
@@ -15,6 +16,8 @@ const Reviews = () => {
             const review=event.target.review.value
             
             const reviewData={
+                name: displayName,
+                img: photoURL,
                 review,
             }
             
@@ -35,13 +38,18 @@ const Reviews = () => {
 
 
     return (
-        <div>
-            <div>
-                <form onSubmit={handleOnSubmit}>
-                    <textarea onBlur={handleOnBlur} name='review' className="textarea textarea-bordered w-full" placeholder="Type Your Review"></textarea>
-                    <button className='btn btn-success'>Submit</button>
-                </form>
-            </div>
+        <div className='mb-10'>
+            {
+                user?.uid?
+                <div>
+                    <form onSubmit={handleOnSubmit}>
+                        <textarea onBlur={handleOnBlur} name='review' className="textarea textarea-bordered w-full" placeholder="Type Your Review"></textarea>
+                        <button className='btn btn-success'>Submit</button>
+                    </form>
+                </div>
+                :
+                <textarea onBlur={handleOnBlur} name='review' className="textarea textarea-bordered w-full" placeholder="To give Review Please Sign In First"></textarea>
+            }
         </div>
     );
 };

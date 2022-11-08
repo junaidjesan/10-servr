@@ -1,14 +1,20 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/Context';
 
 const ExternalLogIn = () => {
     const {facebookSignIn,googleSignIn}= useContext(AuthContext)
 
+    const navigate=useNavigate()
+    const location=useLocation()
+
+    const from=location.state?.from?.pathname||'/'
+
     const handleGoogle=()=>{
         googleSignIn()
         .then(res=>{
             const user=res.user
+            navigate(from,{replace:true})
         })
         .catch(er=>{})
     }
@@ -17,7 +23,7 @@ const ExternalLogIn = () => {
         facebookSignIn()
         .then(res=>{
             const user=res.user
-            console.log(user)
+            navigate(from,{replace:true})
         })
         .catch(er=>{})
     }

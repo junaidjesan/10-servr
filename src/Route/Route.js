@@ -5,9 +5,11 @@ import SignIn from '../Components/Authorization/SignIn/SignIn';
 import SignUp from '../Components/Authorization/SignUp/SignUp';
 import Blogs from '../Components/Blogs/Blogs';
 import Details from '../Components/Details/Details';
+import Favorite from '../Components/Favorite/Favorite';
 import HomePages from '../Components/HomePages/HomePages/HomePages';
 import MyReview from '../Components/MyReview/MyReview';
 import Main from '../Layouts/Main';
+import Rout404 from './Rout404';
 
 
 export const projectRouter=createBrowserRouter([
@@ -45,8 +47,16 @@ export const projectRouter=createBrowserRouter([
                 path:'/all-services/:id',
                 element:<Details></Details>,
                 loader:({params})=>fetch(`http://localhost:5000/all-services/${params.id}`)
+            },
+            {
+                path:'/favorite',
+                element:<Favorite></Favorite>
             }
         ]
+    },
+    {
+        path:'*',
+        element:<Rout404></Rout404>
     }
 ])
 

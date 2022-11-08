@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase.config';
-import {createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from 'firebase/auth'
+import {createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateCurrentUser, updateProfile} from 'firebase/auth'
 
 
 export const AuthContext=createContext()
@@ -29,12 +29,16 @@ const Context = ({children}) => {
     //sign in with email and password
     const emailSignIn=(email,password)=>{
         setLoading(true)
-        signInWithEmailAndPassword(auth,email,password)
+        return signInWithEmailAndPassword(auth,email,password)
     }
 
     const emailSignUp=(email,password)=>{
         setLoading(true)
-        createUserWithEmailAndPassword(auth,email,password)
+        return createUserWithEmailAndPassword(auth,email,password)
+    }
+
+    const updateUserData=(profile)=>{
+        return updateProfile(auth.currentUser, profile)
     }
 
     useEffect(()=>{
@@ -46,13 +50,14 @@ const Context = ({children}) => {
     })
 
     const contextValue={
-        default:'its okay',
+        updateUserData,
         googleSignIn,
         facebookSignIn,
         logOut,
         user,
         emailSignIn,
-        emailSignUp
+        emailSignUp,
+        loading
     }
 
     return (
