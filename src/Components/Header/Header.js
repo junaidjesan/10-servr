@@ -19,13 +19,14 @@ const Header = () => {
                         { user?.uid?
                             <>
                                 <div><Link className='font-semibold' to='/'>Home</Link></div>
-                                <div><Link className='font-semibold' to='/blogs'>Blogs</Link></div>
-                                <div><Link className='font-semibold' to='/myReview'>My Reviews</Link></div>
                                 <div><Link className='font-semibold' to='/books'>Books</Link></div>
+                                <div><Link className='font-semibold' to='/myReview'>My Reviews</Link></div>
+                                <div><Link className='font-semibold' to='/blogs'>Blogs</Link></div>
                             </>
                             :
                             <>
                             <div><Link className='font-semibold' to='/'>Home</Link></div>
+                            <div><Link className='font-semibold' to='/books'>Books</Link></div>
                             <div><Link className='font-semibold' to='/blogs'>Blogs</Link></div>
                             </>
                         }
