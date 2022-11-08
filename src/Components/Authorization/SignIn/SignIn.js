@@ -17,6 +17,7 @@ const SignIn = () => {
         .then(res=>{
             const user=res.user
             console.log(user)
+            form.reset()
         })
         .catch(er=>{console.log(er)})
     }
