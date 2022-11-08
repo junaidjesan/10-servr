@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/Context';
 
 const Header = () => {
-    const {logOut,user}=useContext(AuthContext)
+    const { logOut, user } = useContext(AuthContext)
 
-    const handleLogOut=()=>{
+    const handleLogOut = () => {
         logOut()
-        .then(res=>{})
-        .catch(er=>{})
+            .then(res => { })
+            .catch(er => { })
     }
 
     return (
@@ -16,10 +16,19 @@ const Header = () => {
             <div className="navbar bg-base-100 w-11/12 mx-auto">
                 <div className="navbar-start">
                     <div className='gap-6 md:flex hidden '>
-                        <div><Link className='font-semibold' to='/'>Home</Link></div>
-                        <div><Link className='font-semibold' to='/myReview'>My Reviews</Link></div>
-                        <div><Link className='font-semibold' to='/blogs'>Blogs</Link></div>
-                        <div><Link className='font-semibold' to='/books'>Books</Link></div>
+                        { user?.uid?
+                            <>
+                                <div><Link className='font-semibold' to='/'>Home</Link></div>
+                                <div><Link className='font-semibold' to='/blogs'>Blogs</Link></div>
+                                <div><Link className='font-semibold' to='/myReview'>My Reviews</Link></div>
+                                <div><Link className='font-semibold' to='/books'>Books</Link></div>
+                            </>
+                            :
+                            <>
+                            <div><Link className='font-semibold' to='/'>Home</Link></div>
+                            <div><Link className='font-semibold' to='/blogs'>Blogs</Link></div>
+                            </>
+                        }
                     </div>
                     <div className="dropdown md:hidden">
                         <label tabIndex={0} className="btn btn-primary w-4 h-3 btn-circle">
@@ -33,19 +42,19 @@ const Header = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="navbar-center ">
-                    <Link to='/' className="font-mono hover:text-4xl text-xl hover:text-cyan-500 hover:font-semibold">Junaid Jesan's<span className='text-sm line-through'>Diary</span></Link>
-                </div>
-                <div className="navbar-end">
-                    {   !user?.uid?
-                        <Link to='/signIn'>Sign In</Link>
-                    :
-                    <Link onClick={handleLogOut}>Sign Out</Link>
-                    }
+                    <div className="navbar-center ">
+                        <Link to='/' className="font-mono hover:text-4xl text-xl hover:text-cyan-500 hover:font-semibold">Junaid Jesan's<span className='text-sm line-through'>Diary</span></Link>
+                    </div>
+                    <div className="navbar-end">
+                        {!user?.uid ?
+                            <Link to='/signIn'>Sign In</Link>
+                            :
+                            <Link onClick={handleLogOut}>Sign Out</Link>
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+            );
 };
 
-export default Header;
+            export default Header;

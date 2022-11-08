@@ -18,7 +18,7 @@ const BooksCart = ({books}) => {
                     </h2>
                     <p className='text-justify'>{sliceDetails}...</p>
                     <div className="card-actions justify-end">
-                        <div className="badge badge-outline"><Link to={`/all-services/${_id}`}>Details</Link></div>
+                        <div className="badge badge-outline"><Link to={`/all-services/${_id}`}>View Details</Link></div>
                     </div>
                 </div>
             </div>
