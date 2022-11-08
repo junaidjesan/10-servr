@@ -10,8 +10,7 @@ const BooksCart = ({ books }) => {
     const sliceName = name.slice(0, 10)
     return (
         <div>
-            <div className="card w-96 mb-4 mx-auto bg-base-100 shadow-xl">
-                {/* <figure><img className='h-72' src={img} alt="Shoes" /></figure> */}
+            <div className="card w-96 mb-4 mx-auto shadow-xl">
                 <PhotoProvider>
                     <div className="foo">
                             <PhotoView src={img}>
@@ -27,7 +26,7 @@ const BooksCart = ({ books }) => {
                     </h2>
                     <p className='text-justify'>{sliceDetails}...</p>
                     <div className="card-actions justify-end">
-                        <div className="badge badge-outline"><Link to={`/all-services/${_id}`}>View Details</Link></div>
+                        <div className="badge text-white bg-sky-800  badge-outline"><Link to={`/all-services/${_id}`}>View Details</Link></div>
                     </div>
                 </div>
             </div>

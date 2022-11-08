@@ -9,7 +9,6 @@ const Details = () => {
     const {img,name,price,rating,details}=detailsData
     useTitle('details')
 
-    useTitle('details')
     return (
         <div>
             <div className='shadow-md mb-10 p-5 bo'>

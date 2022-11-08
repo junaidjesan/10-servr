@@ -8,7 +8,7 @@ const Carosul = () => {
     return (
         <div>
             <div className=''>
-                <div className='bg-indigo-50 md:flex rounded-xl py-5 md:gap-24 lg:gap-24'>
+                <div className='bg-sky-50 md:flex rounded-xl py-5 md:gap-24 lg:gap-24'>
                     <div className='md:w-5/12 lg:w-6/12 md:mt-7 md:ml-5'>
                         <div className="carousel">
                             <div id="item1" className="carousel-item">

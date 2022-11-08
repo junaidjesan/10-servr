@@ -9,7 +9,7 @@ const Books = () => {
 
     return (
         <div>
-            <h1 className='text-3xl py-8'>Here are my creations <span>I wish you will be happy to read</span></h1>
+            <h1 className='text-3xl py-8 text-sky-800 '>Here are my creations <span>I wish you will be happy to read</span></h1>
             <div className='grid md:grid-cols-3 justify-center mx-auto'>
                 {
                     loaderservices.map(books => <BooksCart key={books._id} books={books}></BooksCart>)

@@ -6,7 +6,7 @@ const Service = () => {
     const serviceData = useLoaderData()
     return (
         <div className='my-10'>
-            <h1 className='text-center text-4xl text-clip font-bold'>Best 3 For You</h1>
+            <h1 className='text-center text-4xl text-clip font-bold text-sky-800 '>Best 3 For You</h1>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-5 mt-16 justify-center'>
                 {
                     serviceData.map(service => <ServicesCart key={service._id} service={service} ></ServicesCart>)

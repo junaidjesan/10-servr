@@ -1,13 +1,15 @@
 import React from 'react';
 import useTitle from '../../../TitleHook/Title';
+import AboutMe from '../AboutMe/AboutMe';
 import Banner from '../Banner';
 import Carosul from '../Carosul';
 import Service from '../Service/Service';
+import Stat from '../Stat/Stat';
 
 const HomePages = () => {
     useTitle('')
     return (
-        <div>
+        <div className='bg-sky-50'>
             <div>
                 <Banner></Banner>
             </div>
@@ -16,6 +18,15 @@ const HomePages = () => {
             </div>
             <div>
                 <Service></Service>
+            </div>
+            <div>
+                <Stat></Stat>
+            </div>
+            <div>
+                <h1 className='text-3xl font-bold text-sky-800 text-center font-serif'>About Myself</h1>
+                <div className='w-8/12 mx-auto mb-20 mt-5'>
+                    <AboutMe></AboutMe>
+                </div>
             </div>
         </div>
     );

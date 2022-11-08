@@ -7,7 +7,7 @@ const Main = () => {
     return (
         <div >
             <Header></Header>
-            <div className='bg-indigo-50'>
+            <div className='bg-sky-50'>
             <Outlet></Outlet>
             <Footer></Footer>
             </div>
