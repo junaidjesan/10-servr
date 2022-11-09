@@ -3,6 +3,7 @@ import useTitle from '../../../TitleHook/Title';
 import AboutMe from '../AboutMe/AboutMe';
 import Banner from '../Banner';
 import Carosul from '../Carosul';
+import NewBooks from '../NewBooks/NewBooks';
 import Service from '../Service/Service';
 import Stat from '../Stat/Stat';
 
@@ -21,6 +22,9 @@ const HomePages = () => {
             </div>
             <div className='w-11/12 rounded-md border-2 mx-auto'>
                 <Stat></Stat>
+            </div>
+            <div className='mt-5'>
+                <NewBooks></NewBooks>
             </div>
             <div className='mt-10'>
                 <h1 className='text-3xl font-bold text-sky-800 text-center font-serif'>About Myself</h1>

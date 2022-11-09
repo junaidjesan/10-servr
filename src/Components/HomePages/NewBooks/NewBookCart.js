@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { Link } from 'react-router-dom';
 
-const ServicesCart = ({ service }) => {
-    const {img,price,name,rating,details,_id}=service
+const NewBookCart = ({newbook}) => {
+    const {img,price,name,rating,details,_id}=newbook
     const sliceDetails=details.slice(0,100)
     const sliceName=name.slice(0,10)
     return (
@@ -33,4 +32,4 @@ const ServicesCart = ({ service }) => {
     );
 };
 
-export default ServicesCart;
+export default NewBookCart;
