@@ -1,14 +1,15 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import AddBook from '../Components/AddBook/AddBook';
 import Books from '../Components/AllBooks/Books';
 import SignIn from '../Components/Authorization/SignIn/SignIn';
 import SignUp from '../Components/Authorization/SignUp/SignUp';
 import Blogs from '../Components/Blogs/Blogs';
 import Details from '../Components/Details/Details';
-import Favorite from '../Components/Favorite/Favorite';
 import HomePages from '../Components/HomePages/HomePages/HomePages';
 import MyReview from '../Components/MyReview/MyReview';
 import Main from '../Layouts/Main';
+import PrivetRout from './PrivetRout';
 import Rout404 from './Rout404';
 
 
@@ -24,7 +25,7 @@ export const projectRouter=createBrowserRouter([
             },
             {
                 path:'/myreview',
-                element:<MyReview></MyReview>
+                element:<PrivetRout><MyReview></MyReview></PrivetRout>
             },
             {
                 path:'/signIn',
@@ -49,8 +50,8 @@ export const projectRouter=createBrowserRouter([
                 loader:({params})=>fetch(`http://localhost:5000/all-services/${params.id}`)
             },
             {
-                path:'/favorite',
-                element:<Favorite></Favorite>
+                path:'/addbooks',
+                element:<PrivetRout><AddBook></AddBook></PrivetRout>
             }
         ]
     },

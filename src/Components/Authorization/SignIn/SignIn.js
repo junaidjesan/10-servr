@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/Context';
 import useTitle from '../../../TitleHook/Title';
 import ExternalLogIn from '../ExternalLogIn/ExternalLogIn';
@@ -7,19 +7,23 @@ import ExternalLogIn from '../ExternalLogIn/ExternalLogIn';
 const SignIn = () => {
     const {emailSignIn}=useContext(AuthContext)
     useTitle('Sign In')
+    // const navigate=useNavigate()
+    // const location=useLocation()
+
+    // const form=location.state?.from?.pathname||'/'
 
     const handleEmailSignIn=event=>{
         event.preventDefault()
 
-        const form=event.target 
-        const email=form.email.value 
-        const password=form.password.value 
+        const fm=event.target 
+        const email=fm.email.value 
+        const password=fm.password.value 
 
         emailSignIn(email,password)
         .then(res=>{
             const user=res.user
             console.log(user)
-            form.reset()
+            // navigate(form,{replace:true})
         })
         .catch(er=>{console.log(er)})
     }
@@ -33,25 +37,25 @@ const SignIn = () => {
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form onSubmit={handleEmailSignIn} className="card-body">
-                            <div className="form-control">
+                        <fm onSubmit={handleEmailSignIn} className="card-body">
+                            <div className="fm-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="text"required name='email' placeholder="email" className="input input-bordered" />
                             </div>
-                            <div className="form-control">
+                            <div className="fm-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" required name='password' placeholder="password" className="input input-bordered" />
                             </div>
-                            <div className="form-control mt-6">
+                            <div className="fm-control mt-6">
                                 <button className="btn btn-primary">Sign In</button>
                             </div>
                             <h1>if don't have account <Link className='font-semibold text-cyan-400' to='/signUp'>Sign Up</Link> Now</h1>
                 <ExternalLogIn></ExternalLogIn>
-                        </form>
+                        </fm>
                     </div>
                 </div>
             </div>

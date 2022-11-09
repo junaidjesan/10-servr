@@ -1,26 +1,29 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/Context';
 
 const Reviews = () => {
     const { user } = useContext(AuthContext)
-    const {displayName,photoURL}=user
+    const { displayName, photoURL } = user
     console.log(user)
     
-            const handleOnBlur = event => {
-            event.preventDefault()
+    const handleOnBlur = event => {
+        event.preventDefault()
+    }
+    const handleOnSubmit = event => {
+        event.preventDefault()
+        const review = event.target.review.value
+        
+        // if(user.displayName){
+        //     name:displayName,
+        // }
+        const reviewData= {
+            img: photoURL,
+            name:displayName,
+        
+        review,
         }
-        
-        
-        const handleOnSubmit=event=>{
-            event.preventDefault()
-            const review=event.target.review.value
-            
-            const reviewData={
-                name: displayName,
-                img: photoURL,
-                review,
-            }
-            
+
         fetch('http://localhost:5000/review', {
             method: 'POST',
             headers: {
@@ -29,26 +32,27 @@ const Reviews = () => {
             body: JSON.stringify(reviewData)
         })
             .then(res => res.json())
-            .then(data =>{
-                if(data.acknowledged){
+            .then(data => {
+                if (data.acknowledged) {
                     event.target.reset()
                 }
             })
-}
+    }
 
 
     return (
         <div className='mb-10'>
             {
-                user?.uid?
-                <div>
-                    <form onSubmit={handleOnSubmit}>
-                        <textarea onBlur={handleOnBlur} name='review' className="textarea textarea-bordered w-full" placeholder="Type Your Review"></textarea>
-                        <button className='btn btn-success'>Submit</button>
-                    </form>
-                </div>
-                :
-                <textarea onBlur={handleOnBlur} name='review' className="textarea textarea-bordered w-full" placeholder="To give Review Please Sign In First"></textarea>
+                user?.uid ?
+                    <div>
+                        <form onSubmit={handleOnSubmit}>
+                            <textarea onBlur={handleOnBlur} name='review' className="textarea textarea-bordered w-full" placeholder="Type Your Review"></textarea>
+                            <button className='btn btn-success'>Submit</button>
+                        </form>
+                    </div>
+                    :
+                    <textarea name='review' className="textarea textarea-bordered w-full" placeholder="Type Your Review"> <h1>Sign In first</h1></textarea>
+                    
             }
         </div>
     );

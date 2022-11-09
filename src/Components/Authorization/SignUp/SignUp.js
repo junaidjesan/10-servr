@@ -51,7 +51,7 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" name='name' placeholder="name" className="input input-bordered" />
+                                <input type="text" required name='name' placeholder="name" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -63,7 +63,7 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">Image Url</span>
                                 </label>
-                                <input type="url" name='url' placeholder="http://" className="input input-bordered" />
+                                <input type="url" name='url' required placeholder="http://" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">

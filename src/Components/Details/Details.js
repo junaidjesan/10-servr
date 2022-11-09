@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import Reviews from './Reviews/Reviews';
 import { BsStar } from 'react-icons/bs'
 import useTitle from '../../TitleHook/Title';
+import Allreview from './Reviews/Allreview';
 
 const Details = () => {
     const detailsData=useLoaderData()
@@ -29,8 +30,8 @@ const Details = () => {
                 <div className='w-4/12'>
                     <Reviews></Reviews>
                 </div>
-                <div className='bg-slate-700 w-8/12'>
-                    <h1>here is review</h1>
+                <div className='bg-sky-50 w-8/12 rounded-md shadow-xl mb-5'>
+                    <Allreview></Allreview>
                 </div>
             </div>
         </div>

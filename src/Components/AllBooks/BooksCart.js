@@ -20,7 +20,7 @@ const BooksCart = ({ books }) => {
                 </PhotoProvider>
                 <div className="card-body">
                     <h2 className="card-title h-16">
-                        {sliceName}
+                        {sliceName}...
                         <div className="badge badge-secondary">{rating}</div>
                         <div className="badge badge-secondary">${price}</div>
                     </h2>
