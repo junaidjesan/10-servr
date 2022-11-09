@@ -4,8 +4,10 @@ import { AuthContext } from '../../../Context/Context';
 
 const Reviews = () => {
     const { user } = useContext(AuthContext)
+    console.log(user)
     const { displayName, photoURL,email } = user
     
+
     const handleOnBlur = event => {
         event.preventDefault()
     }
@@ -13,15 +15,12 @@ const Reviews = () => {
         event.preventDefault()
         const review = event.target.review.value
         
-        // if(user.displayName){
-        //     name:displayName,
-        // }
-        const reviewData= {
-        email: email,
-        img: photoURL,
-        name:displayName,
-        review,
-        }
+                const reviewData= {
+                    img: photoURL,
+                    name:displayName,
+                    email: email,
+                    review,
+                    }
         event.target.reset()
 
         fetch('http://localhost:5000/review', {
@@ -42,7 +41,7 @@ const Reviews = () => {
     return (
         <div className='mb-10'>
             {
-                user?.uid ?
+                user?.uid?
                     <div>
                         <form onSubmit={handleOnSubmit}>
                             <textarea onBlur={handleOnBlur} name='review' className="textarea textarea-bordered w-full" placeholder="Type Your Review"></textarea>
@@ -50,7 +49,7 @@ const Reviews = () => {
                         </form>
                     </div>
                     :
-                    <textarea name='review' className="textarea textarea-bordered w-full" placeholder="Type Your Review"> <h1>Sign In first</h1></textarea>
+                    <h1 className='text-xl font-bold'>To give Review, Please <Link to='/logIn'>Log In</Link> First</h1>
                     
             }
         </div>

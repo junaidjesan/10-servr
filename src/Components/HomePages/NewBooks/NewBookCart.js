@@ -21,6 +21,7 @@ const NewBookCart = ({newbook}) => {
                         {sliceName}
                         <div className="badge badge-secondary">{rating}</div>
                         <div className="badge badge-secondary">${price}</div>
+                        <div className="badge badge-secondary">New</div>
                     </h2>
                     <p className='text-justify'>{sliceDetails}...</p>
                     <div className="card-actions justify-end">

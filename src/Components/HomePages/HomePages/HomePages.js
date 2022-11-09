@@ -20,7 +20,7 @@ const HomePages = () => {
             <div>
                 <Service></Service>
             </div>
-            <div className='w-11/12 rounded-md border-2 mx-auto'>
+            <div className='w-11/12 rounded-md mx-auto'>
                 <Stat></Stat>
             </div>
             <div className='mt-5'>

@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../TitleHook/Title';
 
 const AddBook = () => {
+    useTitle('Add-books')
 
     const handleOnBlur=event=>{
         event.preventDefault()
@@ -17,12 +19,12 @@ const AddBook = () => {
         const rating=fm.rating.value 
 
         const pushData={
-            name,
-            details,
-            price,
-            sell,
             img,
-            rating
+            name,
+            sell,
+            price,
+            rating,
+            details,
         }
         fm.reset()
 

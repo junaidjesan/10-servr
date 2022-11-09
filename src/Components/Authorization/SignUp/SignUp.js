@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/Context';
 import useTitle from '../../../TitleHook/Title';
 import ExternalLogIn from '../ExternalLogIn/ExternalLogIn';
@@ -8,19 +8,24 @@ const SignUp = () => {
     const {emailSignUp, updateUserData}=useContext(AuthContext)
     useTitle('Sign Up')
 
+    const location=useLocation()
+    const navigate=useNavigate()
+    const form=location.state?.from?.pathname || '/'
+
     const handleSignUp=event=>{
         event.preventDefault()
 
-        const form=event.target 
-        const email=form.email.value 
-        const password=form.password.value 
-        const photoUrl=form.url.value 
-        const name=form.name.value 
+        const fm=event.target 
+        const email=fm.email.value 
+        const password=fm.password.value 
+        const photoUrl=fm.url.value 
+        const name=fm.name.value 
 
-        form.reset()
+        fm.reset()
         emailSignUp(email,password)
         .then(res=>{
             const user=res.user
+            navigate(form,{replace:true})
             userUpdate(name, photoUrl)
         })
         .catch(er=>{console.log(er)})
