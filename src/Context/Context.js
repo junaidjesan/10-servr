@@ -11,7 +11,7 @@ const auth=getAuth(app)
 
 const Context = ({children}) => {
 
-    const [user,setUser]=useState([])
+    const [user,setUser]=useState({})
     const [loading,setLoading]=useState(true)
 
     console.log(user)

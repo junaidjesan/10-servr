@@ -5,7 +5,7 @@ import { AuthContext } from '../../../Context/Context';
 const Reviews = () => {
     const { user } = useContext(AuthContext)
     console.log(user)
-    const { displayName, photoURL,email } = user
+    const { displayName, photoURL,email } = user|| {}
     
 
     const handleOnBlur = event => {
@@ -49,7 +49,7 @@ const Reviews = () => {
                         </form>
                     </div>
                     :
-                    <h1 className='text-xl font-bold'>To give Review, Please <Link to='/logIn'>Log In</Link> First</h1>
+                    <h1 className='text-xl font-bold rounded-xl border-2 py-5 px-2'>To give Review, Please <Link className='text-sky-500' to='/signIn'>Log In</Link> First</h1>
                     
             }
         </div>
