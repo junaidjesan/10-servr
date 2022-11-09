@@ -22,6 +22,7 @@ const Reviews = () => {
         name:displayName,
         review,
         }
+        event.target.reset()
 
         fetch('http://localhost:5000/review', {
             method: 'POST',
@@ -33,7 +34,6 @@ const Reviews = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    event.target.reset()
                 }
             })
     }
