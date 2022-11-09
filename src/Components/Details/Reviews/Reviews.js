@@ -4,8 +4,7 @@ import { AuthContext } from '../../../Context/Context';
 
 const Reviews = () => {
     const { user } = useContext(AuthContext)
-    const { displayName, photoURL } = user
-    console.log(user)
+    const { displayName, photoURL,email } = user
     
     const handleOnBlur = event => {
         event.preventDefault()
@@ -18,9 +17,9 @@ const Reviews = () => {
         //     name:displayName,
         // }
         const reviewData= {
-            img: photoURL,
-            name:displayName,
-        
+        email: email,
+        img: photoURL,
+        name:displayName,
         review,
         }
 

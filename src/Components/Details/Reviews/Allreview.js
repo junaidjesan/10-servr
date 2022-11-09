@@ -7,8 +7,6 @@ const Allreview = () => {
     .then(res=>res.json())
     .then(review=>setReview(review))
 
-    console.log(review)
-
     return (
         <div className='px-14 py-8'>
             <div>
