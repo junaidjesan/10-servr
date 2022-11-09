@@ -1,10 +1,13 @@
-# Getting Started with Create React App
+# Getting Started with Junaid
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Junaid Jesan's Diary
 
-In the project directory, you can run:
+In the project all about some of my books.\
+There has almost my all books and posting my all letest books.\
+Users can get many facilites on this site like they can post their review.\
+They can also edit their reviews.\
+And the most relaxable thing is they don't has to find newest book because they can see them on the home page.\
 
 ### `npm start`
 
