@@ -13,6 +13,6 @@ Users can leand something more about my books in a blogs and they can see all th
 
 ### `View the real Website`
 
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [https://junaid-diary.web.app/signIn) to view it in your browser.
 
 
