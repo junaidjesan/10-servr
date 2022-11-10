@@ -8,7 +8,7 @@ import Allreview from './Reviews/Allreview';
 const Details = () => {
     const detailsData=useLoaderData()
     const {img,name,price,rating,details}=detailsData
-    useTitle('details')
+    useTitle('Details')
 
     return (
         <div>
@@ -31,7 +31,7 @@ const Details = () => {
                     <Reviews detailsData={detailsData}></Reviews>
                 </div>
                 <div className='bg-sky-50 w-full md:w-8/12 rounded-md shadow-xl mb-5'>
-                    <Allreview></Allreview>
+                    <Allreview detailsData={detailsData}></Allreview>
                 </div>
             </div>
         </div>

@@ -22,6 +22,7 @@ const Reviews = ({ detailsData }) => {
             name: displayName,
             email: email,
             review,
+            bookId: detailsData._id,
             bookName: detailsData.name,
         }
         event.target.reset()

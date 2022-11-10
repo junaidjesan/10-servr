@@ -8,7 +8,7 @@ import Service from '../Service/Service';
 import Stat from '../Stat/Stat';
 
 const HomePages = () => {
-    useTitle('')
+    useTitle('Home')
     return (
         <div className='bg-sky-50'>
             <div>
@@ -17,14 +17,14 @@ const HomePages = () => {
             <div>
                 <Carosul></Carosul>
             </div>
-            <div>
-                <Service></Service>
-            </div>
-            <div className='w-11/12 rounded-md mx-auto'>
-                <Stat></Stat>
-            </div>
             <div className='mt-5'>
                 <NewBooks></NewBooks>
+            </div>
+            <div className='w-11/12 mt-10 rounded-md mx-auto'>
+                <Stat></Stat>
+            </div>
+            <div>
+                <Service></Service>
             </div>
             <div className='mt-10'>
                 <h1 className='text-3xl font-bold text-sky-800 text-center font-serif'>About Myself</h1>

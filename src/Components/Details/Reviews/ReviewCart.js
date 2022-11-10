@@ -64,7 +64,7 @@ const ReviewCart = ({ data }) => {
                 <h1 className='w-4/12 items-start'>{review}</h1>
                 <h1 className='disable'>{email}</h1>
                 <h1 className='disable'>{bookName}</h1>
-                <div className='flex gap-7 ml-3'>
+                <div className='flex gap-7 ml-3 justify-end'>
                     <button><AiOutlineDelete onClick={() => handleDelete(data)} className='w-5 h-5' /></button>
                     {/* <button><MdOutlineBuild className='w-5 h-5' /></button> */}
                     <label htmlFor="my-modal-6"><button><MdOutlineBuild className='w-5 h-5' /></button></label>
