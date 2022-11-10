@@ -1,32 +1,51 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/Context';
 import useTitle from '../../../TitleHook/Title';
 import ExternalLogIn from '../ExternalLogIn/ExternalLogIn';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
+
+< ToastContainer
+position = "top-center"
+autoClose = { 120}
+hideProgressBar = { false}
+newestOnTop = { false}
+closeOnClick
+rtl = { false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme = "light"
+    />
 
 const SignIn = () => {
+    const [errors, setErrors] = useState([])
+    const notify = () => toast("successfull !");
 
-    const {emailSignIn}=useContext(AuthContext)
+    const { emailSignIn } = useContext(AuthContext)
     useTitle('Sign In')
-    const navigate=useNavigate()
-    const location=useLocation()
+    const navigate = useNavigate()
+    const location = useLocation()
 
-    const form=location.state?.from?.pathname || '/'
+    const form = location.state?.from?.pathname || '/'
 
-    const handleEmailSignIn=event=>{
+    const handleEmailSignIn = event => {
         event.preventDefault()
 
-        const fm=event.target 
-        const email=fm.email.value 
-        const password=fm.password.value 
+        const fm = event.target
+        const email = fm.email.value
+        const password = fm.password.value
 
-        emailSignIn(email,password)
-        .then(res=>{
-            const user=res.user
-            navigate(form,{replace:true})
+        emailSignIn(email, password)
+            .then(res => {
+                const user = res.user
+                navigate(form, { replace: true })
+                notify()
+                
         })
-        .catch(er=>{console.log(er)})
+            .catch(er => { setErrors(er.message) })
     }
 
     return (
@@ -51,11 +70,14 @@ const SignIn = () => {
                                 </label>
                                 <input type="password" required name='password' placeholder="password" className="input input-bordered" />
                             </div>
+                            <div>
+                                <h1 className='text-red-500'>{errors}</h1>
+                            </div>
                             <div className="fm-control mt-6">
                                 <button className="btn btn-primary">Sign In</button>
                             </div>
                             <h1>if don't have account <Link className='font-semibold text-cyan-400' to='/signUp'>Sign Up</Link> Now</h1>
-                <ExternalLogIn></ExternalLogIn>
+                            <ExternalLogIn></ExternalLogIn>
                         </form>
                     </div>
                 </div>

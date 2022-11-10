@@ -1,46 +1,55 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Context/Context';
 import useTitle from '../../../TitleHook/Title';
 import ExternalLogIn from '../ExternalLogIn/ExternalLogIn';
 
 const SignUp = () => {
-    const {emailSignUp, updateUserData}=useContext(AuthContext)
+    const [registerError, setRegisterError] = useState([])
+    const { emailSignUp, updateUserData } = useContext(AuthContext)
     useTitle('Sign Up')
 
-    const location=useLocation()
-    const navigate=useNavigate()
-    const form=location.state?.from?.pathname || '/'
+    const location = useLocation()
+    const navigate = useNavigate()
+    const form = location.state?.from?.pathname || '/'
 
-    const handleSignUp=event=>{
+    const handleSignUp = event => {
         event.preventDefault()
 
-        const fm=event.target 
-        const email=fm.email.value 
-        const password=fm.password.value 
-        const photoUrl=fm.url.value 
-        const name=fm.name.value 
+        const fm = event.target
+        const email = fm.email.value
+        const password = fm.password.value
+        const photoUrl = fm.url.value
+        const name = fm.name.value
 
         fm.reset()
-        emailSignUp(email,password)
-        .then(res=>{
-            const user=res.user
-            navigate(form,{replace:true})
-            userUpdate(name, photoUrl)
-        })
-        .catch(er=>{console.log(er)})
+        emailSignUp(email, password)
+            .then(res => {
+                const user = res.user
+                navigate(form, { replace: true })
+                userUpdate(name, photoUrl)
+                toast.success('successfully registered')
+                        return (<div className="alert alert-info">
+                                    <div>
+                                        <span>New mail arrived.</span>
+                                    </div>
+                                </div>)
+
+            })
+            .catch(er => { setRegisterError(er.message) })
     }
-    const userUpdate=(name,photoUrl)=>{
-        const profile={
+    const userUpdate = (name, photoUrl) => {
+        const profile = {
             displayName: name,
-            photoURL:photoUrl,
+            photoURL: photoUrl,
         }
         updateUserData(profile)
-        .then(res=>{
-            const data=res.user
-            console.log(data)
-        })
-        .catch(er=>{})
+            .then(res => {
+                const data = res.user
+                console.log(data)
+            })
+            .catch(er => { })
     }
     return (
         <div>
@@ -76,11 +85,14 @@ const SignUp = () => {
                                 </label>
                                 <input type="password" required name='password' placeholder="password" className="input input-bordered" />
                             </div>
+                            <div>
+                                <h1 className='text-red-500'>{registerError}</h1>
+                            </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Sign Up</button>
                             </div>
                             <h1>if already have account <Link className='font-semibold text-cyan-400' to='/signIn'>Sign In</Link> Now</h1>
-                <ExternalLogIn></ExternalLogIn>
+                            <ExternalLogIn></ExternalLogIn>
                         </form>
                     </div>
                 </div>

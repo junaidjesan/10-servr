@@ -28,7 +28,8 @@ const MyReview = () => {
                 <h1>User</h1>
                 <h1>Name</h1>
                 <h1 className='w-4/12 items-start'>Review</h1>
-                <h1 className='disable'>Email</h1>
+                <h1 className='disable w-1/12'>Email</h1>
+                <h1 className='disable'>Book Name</h1>
                 </div>
                     {
                         myreview.map(data => <ReviewCart data={data} key={data._id}></ReviewCart>)

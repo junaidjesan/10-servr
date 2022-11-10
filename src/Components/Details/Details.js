@@ -28,7 +28,7 @@ const Details = () => {
             </div>
             <div className='md:flex w-11/12 mx-auto gap-8'>
                 <div className='w-full md:w-4/12'>
-                    <Reviews></Reviews>
+                    <Reviews detailsData={detailsData}></Reviews>
                 </div>
                 <div className='bg-sky-50 w-full md:w-8/12 rounded-md shadow-xl mb-5'>
                     <Allreview></Allreview>
